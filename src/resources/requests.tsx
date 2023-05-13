@@ -13,6 +13,13 @@ import {
 	required,
 } from 'react-admin';
 
+const statusChoices = [
+	{ id: 'Accepted', name: 'Принята' },
+	{ id: 'Pending', name: 'В ожидании' },
+	{ id: 'Declined', name: 'Отклонена' },
+	{ id: 'Canceled', name: 'Отменена' },
+]
+
 export const RequestsList = () => (
   <List pagination={false}>
     <Datagrid rowClick="edit">
@@ -33,7 +40,8 @@ export const RequestEdit = () => (
 			<ReferenceInput source="userId" reference="users" >
         <SelectInput optionText="email" validate={required()}/>
       </ReferenceInput>
-      <TextInput source="status" />
+			<SelectInput source="status" validate={required()} choices={statusChoices} 
+			/>
       <TextInput source="description" />
     </SimpleForm>
   </Edit>
@@ -45,7 +53,8 @@ export const RequestCreate = () => (
 			<ReferenceInput source="userId" reference="users" >
         <SelectInput optionText="email" validate={required()}/>
       </ReferenceInput>
-      <TextInput source="status" />
+			<SelectInput source="status" validate={required()} choices={statusChoices} 
+			/>
       <TextInput source="description" />
     </SimpleForm>
   </Create>
