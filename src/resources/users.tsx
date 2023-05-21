@@ -18,7 +18,6 @@ import { required, minLength, email } from 'react-admin';
 const validateEmail = [required(), email()];
 const validateField = [required(), minLength(4)];
 
-
 export const UserList = () => (
   <List pagination={false}>
     <Datagrid rowClick="edit">
@@ -26,7 +25,7 @@ export const UserList = () => (
       <TextField source="name" />
       <TextField source="surname" />
       <TextField source="lastname" />
-			<BooleanField source='isAdmin'/>
+      <BooleanField source="isAdmin" />
       <EmailField source="email" />
       <TextField source="phone" />
       <DateField source="createdAt" />
@@ -41,7 +40,7 @@ export const UserEdit = () => (
       <TextInput disabled source="id" />
       <TextInput source="name" />
       <TextInput source="surname" />
-      <TextInput source="lastName" />
+      <TextInput source="lastname" />
       <TextInput source="phone" />
       <TextInput source="email" type="email" validate={validateEmail} />
       <BooleanInput source="isAdmin" />
@@ -53,7 +52,7 @@ export const UserCreate = () => (
   <Create>
     <SimpleForm>
       <TextInput source="name" />
-      <TextInput source="lastName" />
+      <TextInput source="lastname" />
       <TextInput source="surname" />
       <TextInput source="phone" />
       <TextInput source="email" type="email" validate={validateEmail} />
